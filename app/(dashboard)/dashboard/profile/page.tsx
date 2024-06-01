@@ -82,7 +82,7 @@ export default function Page() {
               value={transcript}
               onChange={handleTranscriptChange}
               placeholder="Enter the transcript text here..."
-              className="w-full h-[300px] bg-gray-100 dark:bg-gray-950/50 dark:text-gray-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-700 focus:border-transparent"
+              className="w-full h-[300px] bg-gray-100 dark:bg-gray-950/50 dark:text-gray-200 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-800/50 focus:border-transparent"
             />
             <div className="flex justify-between items-center">
               <p className="text-sm text-gray-500">
@@ -108,7 +108,7 @@ export default function Page() {
                     </span>
                     <div onClick={copyToClipboard} className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
                       <span onClick={copyToClipboard}>
-                       {copied ? 'Copied!' : 'Copy'}
+                        {copied ? 'Copied!' : 'Copy'}
                       </span>
                       <svg
                         fill="none"

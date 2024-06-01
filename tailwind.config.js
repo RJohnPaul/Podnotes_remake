@@ -58,9 +58,14 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        flip: {
-          to: {
-            transform: 'rotate(360deg)'
+        "flip": {
+          "to": {
+            "transform": "rotate(360deg)"
+          }
+        },
+        "rotate": {
+          "to": {
+            "transform": "rotate(90deg)"
           }
         },
         shimmer: {
@@ -83,11 +88,8 @@ module.exports = {
       animation: {
         "flip": "flip 6s infinite steps(2, end)",
         "rotate": "rotate 3s linear infinite both",
-        
         'accordion-down': 'accordion-down 0.2s ease-out',
         shimmer: 'shimmer 10s linear infinite',
-        flip: 'flip 6s infinite steps(2, end)',
-        rotate: 'rotate 3s linear infinite both',
         'accordion-up': 'accordion-up 0.2s ease-out'
       }
     }
