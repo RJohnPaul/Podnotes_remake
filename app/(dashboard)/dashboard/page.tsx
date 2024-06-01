@@ -16,22 +16,16 @@ export default function Component() {
             </div>
             <nav className="grid gap-1 text-sm font-medium">
               <Link href="dashboard/profile" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                New Podcasts
+                Transcripts
               </Link>
               <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Saved Podcasts
+                Audio
               </Link>
               <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Magic Chat
+                AI-Transcript
               </Link>
               <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Style Library
-              </Link>
-              <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Integrations
-              </Link>
-              <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Account Settings
+                Video
               </Link>
             </nav>
           </div>

@@ -38,12 +38,6 @@ export function MobileSidebar({ className }: SidebarProps) {
               <a href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
                 Style Library
               </a>
-              <a href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Integrations
-              </a>
-              <a href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Account Settings
-              </a>
               </div>
             </div>
           </div>
