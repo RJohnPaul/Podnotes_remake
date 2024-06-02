@@ -10,6 +10,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 import { CardAnimatedBorder } from '@/components/ui/CardAnimatedBorder';
+import { useToast } from '@/components/ui/use-toast';
+import { Progress } from '@/components/ui/progress';
 dotenv.config();
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
@@ -25,6 +27,9 @@ export default function Page() {
   const [notes, setNotes] = useState('');
   const [remainingTokens, setRemainingTokens] = useState(MAX_TOKENS);
   const [copied, setCopied] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const { toast } = useToast();
 
   const handleTranscriptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
@@ -42,19 +47,38 @@ export default function Page() {
     }
 
     try {
+      setLoading(true);
+      setProgress(0);
+
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       const prompt = `Please generate notes from the following transcript:\n\n${transcript}`;
 
-      const result = await model.generateContent(prompt);
+      const result = await model.generateContent(prompt, {
+        onProgress: (progressEvent: { progress: number; }) => {
+          setProgress(progressEvent.progress * 100);
+        },
+      });
       const response = await result.response;
       const text = await response.text();
 
       setNotes(text.trim());
       setTranscript('');
       setRemainingTokens(MAX_TOKENS);
+      setLoading(false);
+      toast({
+        title: 'Notes generated successfully!',
+        description: 'The notes have been generated based on the provided transcript.',
+        variant: 'default',
+      });
     } catch (error) {
       console.error('Error generating notes:', error);
       setNotes('An error occurred while generating notes. Please check the API key and try again.');
+      setLoading(false);
+      toast({
+        title: 'Error generating notes',
+        description: 'An error occurred while generating notes. Please try again.',
+        variant: 'destructive',
+      });
     }
   };
 
@@ -62,6 +86,11 @@ export default function Page() {
     navigator.clipboard.writeText(notes);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+    toast({
+      title: 'Notes copied to clipboard!',
+      description: 'The generated notes have been copied to your clipboard.',
+      variant: 'default',
+    });
   };
 
   return (
@@ -94,10 +123,14 @@ export default function Page() {
                 as="button"
                 className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-0.5"
               >
-
                 <span>Generate</span>
               </HoverBorderGradient>
             </div>
+            {loading && (
+              <div className="mt-4">
+                <Progress value={progress} />
+              </div>
+            )}
             {notes && (
               <div className="mt-2 p-6 md:p-8 lg:p-6 space-y-6 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                 <div className="flex justify-between items-center mb-4 ">
@@ -140,12 +173,3 @@ export default function Page() {
     </ScrollArea>
   );
 }
-//
-//AIzaSyDeSw9Bdd31ZQ3uzryaHZpfsRtV_k8-8D8
-
-
-
-
-
-
-
