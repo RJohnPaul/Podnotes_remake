@@ -15,7 +15,7 @@ import { Progress } from '@/components/ui/progress';
 dotenv.config();
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const genAI = new GoogleGenerativeAI('AIzaSyDeSw9Bdd31ZQ3uzryaHZpfsRtV_k8-8D8');
+const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_API_KEY);
 
 const breadcrumbItems = [{ title: 'Transcript', link: '/dashboard/profile' }];
 const MAX_TOKENS = 1000;
