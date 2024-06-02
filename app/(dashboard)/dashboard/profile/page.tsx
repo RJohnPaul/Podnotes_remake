@@ -117,7 +117,7 @@ export default function Page() {
               <CardTitle className="text-2xl font-bold">Transcript Entry</CardTitle>
             </div>
             <CardDescription className="text-gray-400 mt-2 ">
-              Enter the transcript text and click &apos;Generate&apos; to submit.
+              Enter transcript texts and click &apos;Generate&apos; to submit.
             </CardDescription>
           </CardHeader>
           <CardContent className="p-6 md:p-8 lg:p-10 space-y-6 ">
