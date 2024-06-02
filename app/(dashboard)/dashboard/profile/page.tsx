@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BreadCrumb from '@/components/breadcrumb';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -31,6 +31,24 @@ export default function Page() {
   const [progress, setProgress] = useState(0);
   const { toast } = useToast();
 
+  useEffect(() => {
+    if (loading) {
+      const timer = setInterval(() => {
+        setProgress((prevProgress) => {
+          if (prevProgress >= 100) {
+            clearInterval(timer);
+            return 100;
+          }
+          return prevProgress + 1;
+        });
+      }, 50);
+
+      return () => {
+        clearInterval(timer);
+      };
+    }
+  }, [loading]);
+
   const handleTranscriptChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setTranscript(value);
@@ -53,11 +71,7 @@ export default function Page() {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
       const prompt = `Please generate notes from the following transcript:\n\n${transcript}`;
 
-      const result = await model.generateContent(prompt, {
-        onProgress: (progressEvent: { progress: number; }) => {
-          setProgress(progressEvent.progress * 100);
-        },
-      });
+      const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = await response.text();
 
@@ -98,7 +112,7 @@ export default function Page() {
       <BreadCrumb items={breadcrumbItems} />
       <div className="flex justify-center items-center py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8">
         <Card className="w-full max-w-3xl shadow-lg rounded-lg">
-          <CardHeader className="bg-gray-900 dark:bg-gray-900 py-6 rounded-t-lg md:px-8  animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 ">
+          <CardHeader className="bg-gray-900 dark:bg-gray-900 text-black  py-6 rounded-t-lg md:px-8  animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium dark:text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 ">
             <div className="flex items-center justify-between ">
               <CardTitle className="text-2xl font-bold">Transcript Entry</CardTitle>
             </div>
