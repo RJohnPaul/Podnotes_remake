@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
+import React from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
@@ -11,21 +12,21 @@ export default function Component() {
           <div className="flex flex-col gap-4 p-4">
             <div className="flex h-[60px] items-center">
               <Link href="#" className="flex items-center gap-2 font-semibold">
-                <span>Podcast Dashboard</span>
+                <span>Podnotes Dashboard</span>
               </Link>
             </div>
             <nav className="grid gap-1 text-sm font-medium">
               <Link href="dashboard/profile" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
                 Transcripts
               </Link>
-              <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Audio
+              <Link href="dashboard/kanban" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
+                Youtube&nbsp;Link
               </Link>
               <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                AI-Transcript
+                AI-Transcript-UnderDev
               </Link>
               <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Video
+                Video-UnderDev
               </Link>
             </nav>
           </div>

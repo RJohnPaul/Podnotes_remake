@@ -4,12 +4,10 @@ import BreadCrumb from '@/components/breadcrumb';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
 import dotenv from 'dotenv';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
-import { CardAnimatedBorder } from '@/components/ui/CardAnimatedBorder';
 import { useToast } from '@/components/ui/use-toast';
 import { Progress } from '@/components/ui/progress';
 dotenv.config();
@@ -85,7 +83,6 @@ export default function Page() {
         variant: 'default',
       });
     } catch (error) {
-      console.error('Error generating notes:', error);
       setNotes('An error occurred while generating notes. Please check the API key and try again.');
       setLoading(false);
       toast({
@@ -109,7 +106,9 @@ export default function Page() {
 
   return (
     <ScrollArea className="h-full">
-      <BreadCrumb items={breadcrumbItems} />
+      <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
+        <BreadCrumb items={breadcrumbItems} />
+      </div>
       <div className="flex justify-center items-center py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-8">
         <Card className="w-full max-w-3xl shadow-lg rounded-lg">
           <CardHeader className="bg-gray-900 dark:bg-gray-900 text-black  py-6 rounded-t-lg md:px-8  animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium dark:text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 ">
