@@ -1,7 +1,5 @@
 'use client';
-import { DashboardNav } from '@/components/dashboard-nav';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { navItems } from '@/constants/data';
 import {  MenuIcon } from 'lucide-react';
 import { useState } from 'react';
 
@@ -27,16 +25,16 @@ export function MobileSidebar({ className }: SidebarProps) {
               </h2>
               <div className="space-y-1">
               <a href="dashboard/profile" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                New Podcasts
+                Transcript
+              </a>
+              <a href="dashboard/kanban" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
+                Youtube Link
               </a>
               <a href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Saved Podcasts
+                Magic Chat - Underdev
               </a>
               <a href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Magic Chat
-              </a>
-              <a href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Style Library
+                Style Library - Underdev
               </a>
               </div>
             </div>
