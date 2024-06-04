@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BreadCrumb from '@/components/breadcrumb';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -28,6 +28,26 @@ export default function Page() {
   const [progress, setProgress] = useState(0);
   const { toast } = useToast();
 
+  useEffect(() => {
+    let progressInterval: NodeJS.Timeout | null = null;
+
+    if (loading) {
+      setProgress(0);
+      progressInterval = setInterval(() => {
+        setProgress((prevProgress) => {
+          if (prevProgress >= 100) {
+            return prevProgress;
+          }
+          return prevProgress + 1;
+        });
+      }, 50);
+    }
+
+    return () => {
+      if (progressInterval) clearInterval(progressInterval);
+    };
+  }, [loading]);
+
   const handleYoutubeUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setYoutubeUrl(e.target.value);
   };
@@ -35,14 +55,13 @@ export default function Page() {
   const handleGenerateNotes = async () => {
     try {
       setLoading(true);
-      setProgress(0);
 
       // Make a request to RapidAPI to get the transcript URL
       const url = 'https://youtubetranscriptdownloader.p.rapidapi.com/dev';
       const options = {
         method: 'POST',
         headers: {
-          'x-rapidapi-key': '89c6377ec6msha8a2e0c5318dcdcp1dcc6bjsn06e281c21239',
+          'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPID_API_KEY || '',
           'x-rapidapi-host': 'youtubetranscriptdownloader.p.rapidapi.com',
           'Content-Type': 'application/json',
         },
