@@ -16,7 +16,7 @@ dotenv.config();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_API_KEY);
 
-const breadcrumbItems = [{ title: 'Youtube Link To Short Notes', link: '/dashboard/kanban' }];
+const breadcrumbItems = [{ title: 'Youtube Link To Notes', link: '/dashboard/kanban' }];
 
 dotenv.config();
 
