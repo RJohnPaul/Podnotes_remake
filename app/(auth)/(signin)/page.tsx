@@ -41,9 +41,8 @@ export default function AuthenticationPage() {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              &ldquo;This  has sasitesved me countless hours of work and
-              helped me with excellent notes to my transcripts and youtube  links faster than ever
-              before.&rdquo;
+              &ldquo;This  has saved me countless hours of work and
+              helped me with excellent notes for my transcripts and youtube links faster.&rdquo;
             </p>
             <footer className="text-sm">John Paul</footer>
           </blockquote>
