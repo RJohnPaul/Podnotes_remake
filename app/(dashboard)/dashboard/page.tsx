@@ -22,8 +22,8 @@ export default function Component() {
               <Link href="dashboard/kanban" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
                 Youtube&nbsp;Link
               </Link>
-              <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                AI-Transcript-UnderDev
+              <Link href="dashboard/employee" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
+                Magic Chat
               </Link>
               <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
                 Video-UnderDev
