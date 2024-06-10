@@ -122,7 +122,7 @@ export default function Page() {
               <CardTitle className="text-2xl font-bold">Video Upload</CardTitle>
             </div>
             <CardDescription className="text-gray-400 mt-2">
-              Upload a video file and click &apos;Generate Notes&apos; to generate notes from the video.
+              Upload a video file and click &apos;Generate Notes&apos; to get notes from the link.
             </CardDescription>
           </CardHeader>
           <CardContent className="p-6 md:p-8 lg:p-10 space-y-6">
