@@ -162,7 +162,7 @@ export default function Page() {
             {notes && (
               <div className="mt-8 p-6 md:p-8 lg:p-6 space-y-6 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold">Generated Notes:</h3>
+                  <h3 className="text-lg font-semibold">Generated Notes</h3>
                   <button onClick={copyToClipboard} className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block">
                     <span onClick={copyToClipboard} className="absolute inset-0 overflow-hidden rounded-full">
                       <span onClick={copyToClipboard} className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
