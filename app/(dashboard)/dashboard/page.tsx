@@ -12,7 +12,7 @@ export default function Component() {
           <div className="flex flex-col gap-4 p-4">
             <div className="flex h-[60px] items-center">
               <Link href="#" className="flex items-center gap-2 font-semibold">
-                <span>Podnotes Dashboard</span>
+                <span>QuickNotes Dashboard</span>
               </Link>
             </div>
             <nav className="grid gap-1 text-sm font-medium">
