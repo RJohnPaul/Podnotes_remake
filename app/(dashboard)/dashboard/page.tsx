@@ -23,7 +23,7 @@ export default function Component() {
                 Youtube&nbsp;Link
               </Link>
               <Link href="dashboard/employee" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
-                Magic Chat
+                Magic Chat - Underdev
               </Link>
               <Link href="#" className="block rounded-lg px-3 py-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
                 Video-UnderDev
@@ -76,7 +76,7 @@ export default function Component() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Magic Chat</CardTitle>
+                <CardTitle>Magic Chat - Underdev</CardTitle>
                 <CardDescription>Connect with other podcast listeners and creators.</CardDescription>
               </CardHeader>
               <CardContent>
